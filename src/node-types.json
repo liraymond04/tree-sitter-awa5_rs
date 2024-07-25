@@ -1,0 +1,277 @@
+[
+  {
+    "type": "awatism",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_macro_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "instruction",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      },
+      "kind": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "awatism",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "macro",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "value",
+            "named": true
+          }
+        ]
+      },
+      "kind": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_macro_name",
+            "named": true
+          },
+          {
+            "type": "macro_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "instruction",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "macro",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "!_chr",
+    "named": false
+  },
+  {
+    "type": "!_f32",
+    "named": false
+  },
+  {
+    "type": "!_i32",
+    "named": false
+  },
+  {
+    "type": "!_str",
+    "named": false
+  },
+  {
+    "type": "!chr",
+    "named": false
+  },
+  {
+    "type": "!f32",
+    "named": false
+  },
+  {
+    "type": "!i32",
+    "named": false
+  },
+  {
+    "type": "!str",
+    "named": false
+  },
+  {
+    "type": "4dd",
+    "named": false
+  },
+  {
+    "type": "blo",
+    "named": false
+  },
+  {
+    "type": "cnt",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "div",
+    "named": false
+  },
+  {
+    "type": "dpl",
+    "named": false
+  },
+  {
+    "type": "eql",
+    "named": false
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "gr8",
+    "named": false
+  },
+  {
+    "type": "jmp",
+    "named": false
+  },
+  {
+    "type": "lbl",
+    "named": false
+  },
+  {
+    "type": "lib",
+    "named": false
+  },
+  {
+    "type": "lss",
+    "named": false
+  },
+  {
+    "type": "macro_name",
+    "named": true
+  },
+  {
+    "type": "mrg",
+    "named": false
+  },
+  {
+    "type": "mul",
+    "named": false
+  },
+  {
+    "type": "nop",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "pop",
+    "named": false
+  },
+  {
+    "type": "pr1",
+    "named": false
+  },
+  {
+    "type": "prn",
+    "named": false
+  },
+  {
+    "type": "r3d",
+    "named": false
+  },
+  {
+    "type": "red",
+    "named": false
+  },
+  {
+    "type": "sbm",
+    "named": false
+  },
+  {
+    "type": "srn",
+    "named": false
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "sub",
+    "named": false
+  },
+  {
+    "type": "trm",
+    "named": false
+  }
+]
