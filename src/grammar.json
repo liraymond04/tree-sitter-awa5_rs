@@ -91,7 +91,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "ascii_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "awascii_string"
         },
         {
           "type": "SYMBOL",
@@ -103,9 +107,13 @@
         }
       ]
     },
-    "string": {
+    "ascii_string": {
       "type": "PATTERN",
       "value": "\"([^\"\\\\]|\\\\.)*\""
+    },
+    "awascii_string": {
+      "type": "PATTERN",
+      "value": "a\"([^\"\\\\]|\\\\.)*\""
     },
     "number": {
       "type": "PATTERN",

@@ -20,12 +20,15 @@ module.exports = grammar({
     label: $ => seq('lbl', $.number),
 
     value: $ => choice(
-      $.string,
+      $.ascii_string,
+      $.awascii_string,
       $.number,
       $.float,
     ),
 
-    string: $ => /"([^"\\]|\\.)*"/,
+    ascii_string: $ => /"([^"\\]|\\.)*"/,
+
+    awascii_string: $ => /a"([^"\\]|\\.)*"/,
 
     number: $ => /\d+/,
 

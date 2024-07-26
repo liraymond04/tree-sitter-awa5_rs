@@ -112,15 +112,19 @@
       "required": true,
       "types": [
         {
+          "type": "ascii_string",
+          "named": true
+        },
+        {
+          "type": "awascii_string",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
         {
           "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
           "named": true
         }
       ]
@@ -165,6 +169,14 @@
   {
     "type": "4dd",
     "named": false
+  },
+  {
+    "type": "ascii_string",
+    "named": true
+  },
+  {
+    "type": "awascii_string",
+    "named": true
   },
   {
     "type": "blo",
@@ -261,10 +273,6 @@
   {
     "type": "srn",
     "named": false
-  },
-  {
-    "type": "string",
-    "named": true
   },
   {
     "type": "sub",
