@@ -21,7 +21,7 @@ module.exports = grammar({
     label: $ => seq('lbl', $.number),
 
     value: $ => choice(
-      $._text,
+      $.text,
       $.ascii_string,
       $.awascii_string,
       $.ascii_char,
@@ -32,7 +32,7 @@ module.exports = grammar({
       $.replacement_var,
     ),
 
-    _text: $ => /[a-zA-Z0-9_]+/,
+    text: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     ascii_string: $ => /"([^"\\]|\\.)*"/,
 
@@ -56,9 +56,9 @@ module.exports = grammar({
 
     replacement_macro: $ => seq(field('kind', $.replacement_macro_name), optional(field('argument', $.argument_list))),
 
-    replacement_macro_name: $ => /!\$[a-zA-Z0-9_]+/,
+    replacement_macro_name: $ => /!\$[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    replacement_var: $ => /\$[a-zA-Z0-9_]+/,
+    replacement_var: $ => /\$[a-zA-Z_][a-zA-Z0-9_]*/,
 
     instruction: $ => seq(field('kind', $.awatism), optional(field('argument', $.value))),
 
@@ -110,7 +110,7 @@ module.exports = grammar({
       '!_str',
     ),
 
-    macro_name: $ => /![a-zA-Z0-9_]+/,
+    macro_name: $ => /![a-zA-Z_][a-zA-Z0-9_]*/,
 
     macro_block: $ => seq(
       $.macro_block_def, $.macro_block_name, '(', $.parameter_list, ')',
@@ -122,14 +122,14 @@ module.exports = grammar({
 
     macro_block_end: $ => '!end',
 
-    macro_block_name: $ => /[a-zA-Z0-9_]+/,
+    macro_block_name: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     parameter_list: $ => seq(
       $.parameter,
       optional(seq(',', $.parameter)),
     ),
 
-    parameter: $ => /[a-zA-Z0-9_]+/,
+    parameter: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     _macro_block_statement: $ => choice(
       $.label,
