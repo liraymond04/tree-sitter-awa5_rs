@@ -113,7 +113,7 @@ module.exports = grammar({
     macro_name: $ => /![a-zA-Z0-9_]+/,
 
     macro_block: $ => seq(
-      $.macro_block_def, $.identifier, '(', $.parameter_list, ')',
+      $.macro_block_def, $.macro_block_name, '(', $.parameter_list, ')',
       sep(repeat1('\n'), $._macro_block_statement),
       $.macro_block_end,
     ),
@@ -122,12 +122,14 @@ module.exports = grammar({
 
     macro_block_end: $ => '!end',
 
+    macro_block_name: $ => /[a-zA-Z0-9_]+/,
+
     parameter_list: $ => seq(
-      $.identifier,
-      optional(seq(',', $.identifier)),
+      $.parameter,
+      optional(seq(',', $.parameter)),
     ),
 
-    identifier: $ => /[a-zA-Z_]\w*/,
+    parameter: $ => /[a-zA-Z0-9_]+/,
 
     _macro_block_statement: $ => choice(
       $.label,

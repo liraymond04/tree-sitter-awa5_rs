@@ -108,10 +108,6 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "instruction",
           "named": true
         },
@@ -132,6 +128,10 @@
           "named": true
         },
         {
+          "type": "macro_block_name",
+          "named": true
+        },
+        {
           "type": "parameter_list",
           "named": true
         },
@@ -147,6 +147,16 @@
     }
   },
   {
+    "type": "macro_block_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parameter",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parameter_list",
     "named": true,
     "fields": {},
@@ -155,7 +165,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "parameter",
           "named": true
         }
       ]
@@ -387,10 +397,6 @@
   {
     "type": "gr8",
     "named": false
-  },
-  {
-    "type": "identifier",
-    "named": true
   },
   {
     "type": "jmp",
