@@ -15,28 +15,52 @@ module.exports = grammar({
       $.label,
       $.instruction,
       $.macro,
+      $.macro_block,
     ),
 
     label: $ => seq('lbl', $.number),
 
     value: $ => choice(
+      $._text,
       $.ascii_string,
       $.awascii_string,
+      $.ascii_char,
+      $.awascii_char,
+      $.path,
       $.number,
       $.float,
+      $.replacement_var,
     ),
+
+    _text: $ => /[a-zA-Z0-9_]+/,
 
     ascii_string: $ => /"([^"\\]|\\.)*"/,
 
     awascii_string: $ => /a"([^"\\]|\\.)*"/,
 
+    ascii_char: $ => /'([^'\\]|\\.)*'/,
+
+    awascii_char: $ => /a'([^'\\]|\\.)*'/,
+
+    path: $ => seq(
+      '<',
+      $.path_content,
+      '>',
+    ),
+
+    path_content: $ => /[^<>]+/,
+
     number: $ => /\d+/,
 
     float: $ => /\d+\.\d+/,
 
-    instruction: $ => seq(field('kind', $.awatism), optional(field('argument', $.value))),
+    replacement_macro: $ => seq(field('kind', $.replacement_macro_name), optional(field('argument', $.argument_list))),
 
-    // awatism: $ => /[a-zA-Z0-9_]+/,
+    replacement_macro_name: $ => /!\$[a-zA-Z0-9_]+/,
+
+    replacement_var: $ => /\$[a-zA-Z0-9_]+/,
+
+    instruction: $ => seq(field('kind', $.awatism), optional(field('argument', $.value))),
 
     awatism: $ => choice(
       'nop',
@@ -55,7 +79,6 @@ module.exports = grammar({
       'mul',
       'div',
       'cnt',
-      // 'lbl',
       'jmp',
       'eql',
       'lss',
@@ -66,10 +89,17 @@ module.exports = grammar({
 
     macro: $ => choice(
       seq(field('kind', $.builtin_macro_name), optional(field('argument', $.value))),
-      seq(field('kind', $.macro_name), optional(field('argument', $.value))),
+      seq(field('kind', $.macro_name), optional(field('argument', $.argument_list))),
+    ),
+
+    argument_list: $ => seq(
+      $.value,
+      repeat(seq(',', $.value)),
     ),
 
     builtin_macro_name: $ => choice(
+      '!once',
+      '!include',
       '!i32',
       '!f32',
       '!chr',
@@ -81,6 +111,27 @@ module.exports = grammar({
     ),
 
     macro_name: $ => /![a-zA-Z0-9_]+/,
+
+    macro_block: $ => seq(
+      '!def', $.identifier, '(', $.parameter_list, ')',
+      sep(repeat1('\n'), $._macro_block_statement),
+      '!end',
+    ),
+
+    parameter_list: $ => seq(
+      $.identifier,
+      optional(seq(',', $.identifier)),
+    ),
+
+    identifier: $ => /[a-zA-Z_]\w*/,
+
+    _macro_block_statement: $ => choice(
+      $.label,
+      $.instruction,
+      $.macro,
+      $.replacement_var,
+      $.replacement_macro,
+    ),
   },
 });
 
