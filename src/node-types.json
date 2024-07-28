@@ -124,6 +124,14 @@
           "named": true
         },
         {
+          "type": "macro_block_def",
+          "named": true
+        },
+        {
+          "type": "macro_block_end",
+          "named": true
+        },
+        {
           "type": "parameter_list",
           "named": true
         },
@@ -289,14 +297,6 @@
     "named": false
   },
   {
-    "type": "!def",
-    "named": false
-  },
-  {
-    "type": "!end",
-    "named": false
-  },
-  {
     "type": "!f32",
     "named": false
   },
@@ -407,6 +407,14 @@
   {
     "type": "lss",
     "named": false
+  },
+  {
+    "type": "macro_block_def",
+    "named": true
+  },
+  {
+    "type": "macro_block_end",
+    "named": true
   },
   {
     "type": "macro_name",

@@ -480,8 +480,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "!def"
+          "type": "SYMBOL",
+          "name": "macro_block_def"
         },
         {
           "type": "SYMBOL",
@@ -551,10 +551,18 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "!end"
+          "type": "SYMBOL",
+          "name": "macro_block_end"
         }
       ]
+    },
+    "macro_block_def": {
+      "type": "STRING",
+      "value": "!def"
+    },
+    "macro_block_end": {
+      "type": "STRING",
+      "value": "!end"
     },
     "parameter_list": {
       "type": "SEQ",

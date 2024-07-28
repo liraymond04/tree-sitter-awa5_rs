@@ -113,10 +113,14 @@ module.exports = grammar({
     macro_name: $ => /![a-zA-Z0-9_]+/,
 
     macro_block: $ => seq(
-      '!def', $.identifier, '(', $.parameter_list, ')',
+      $.macro_block_def, $.identifier, '(', $.parameter_list, ')',
       sep(repeat1('\n'), $._macro_block_statement),
-      '!end',
+      $.macro_block_end,
     ),
+
+    macro_block_def: $ => '!def',
+
+    macro_block_end: $ => '!end',
 
     parameter_list: $ => seq(
       $.identifier,
