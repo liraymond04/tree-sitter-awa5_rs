@@ -1,4 +1,4 @@
-VERSION := 0.1.1
+VERSION := 0.1.3
 
 LANGUAGE_NAME := tree-sitter-awa5_rs
 

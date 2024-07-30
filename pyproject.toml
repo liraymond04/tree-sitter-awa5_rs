@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-awa5_rs"
 description = "AWA5.RS grammar for tree-sitter"
-version = "0.1.1"
+version = "0.1.3"
 keywords = ["incremental", "parsing", "tree-sitter", "awa5-rs"]
 classifiers = [
   "Intended Audience :: Developers",

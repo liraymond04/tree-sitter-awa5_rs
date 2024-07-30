@@ -18,7 +18,12 @@ module.exports = grammar({
       $.macro_block,
     ),
 
-    label: $ => seq('lbl', $.number),
+    label: $ => choice(
+      seq('lbl', $.number),
+      seq($.label_name, ':'),
+    ),
+
+    label_name: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
     value: $ => choice(
       $.text,
@@ -84,6 +89,7 @@ module.exports = grammar({
       'lss',
       'gr8',
       'lib',
+      'jro',
       'trm',
     ),
 
