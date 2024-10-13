@@ -23,7 +23,7 @@ module.exports = grammar({
       seq($.label_name, ':'),
     ),
 
-    label_name: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    label_name: $ => /\.?[a-zA-Z_][a-zA-Z0-9_]*/,
 
     value: $ => choice(
       $.text,
@@ -35,6 +35,7 @@ module.exports = grammar({
       $.number,
       $.float,
       $.replacement_var,
+      $.label_name,
     ),
 
     text: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
@@ -90,6 +91,8 @@ module.exports = grammar({
       'gr8',
       'lib',
       'jro',
+      'call',
+      'ret',
       'trm',
     ),
 

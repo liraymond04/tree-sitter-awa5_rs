@@ -110,7 +110,7 @@
     },
     "label_name": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z0-9_]*"
+      "value": "\\.?[a-zA-Z_][a-zA-Z0-9_]*"
     },
     "value": {
       "type": "CHOICE",
@@ -150,6 +150,10 @@
         {
           "type": "SYMBOL",
           "name": "replacement_var"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label_name"
         }
       ]
     },
@@ -358,6 +362,14 @@
         {
           "type": "STRING",
           "value": "jro"
+        },
+        {
+          "type": "STRING",
+          "value": "call"
+        },
+        {
+          "type": "STRING",
+          "value": "ret"
         },
         {
           "type": "STRING",

@@ -70,11 +70,6 @@
     }
   },
   {
-    "type": "label_name",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "macro",
     "named": true,
     "fields": {
@@ -282,6 +277,10 @@
           "named": true
         },
         {
+          "type": "label_name",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -393,6 +392,10 @@
     "named": false
   },
   {
+    "type": "call",
+    "named": false
+  },
+  {
     "type": "cnt",
     "named": false
   },
@@ -427,6 +430,10 @@
   {
     "type": "jro",
     "named": false
+  },
+  {
+    "type": "label_name",
+    "named": true
   },
   {
     "type": "lbl",
@@ -499,6 +506,10 @@
   {
     "type": "replacement_var",
     "named": true
+  },
+  {
+    "type": "ret",
+    "named": false
   },
   {
     "type": "sbm",
